@@ -1,4 +1,5 @@
 # React and Node JS Study Project
+이 프로젝트는 REACT 18, Node JS 로 공부해보는 프로젝트입니다.
 Using MERN Stack and React Version 18
 
 # Getting Started with Create React App
