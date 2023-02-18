@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer.js';
 import SignUp from './components/SignUp.js';
 import PrivateComponent from './components/PrivateComponent';
+import Login from './components/Login.js';
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
         <Route path="/update" element={<h1>Update Product Component</h1>}/>
         <Route path="/logout" element={<h1>Logout Component</h1>}/>
         <Route path="/profile" element={<h1>Profile Component</h1>}/>
+        
         </Route>
+
         <Route path="/signup" element={<SignUp></SignUp>}/>
+        <Route path="/login" element={<Login></Login>} />
       </Routes>
       </BrowserRouter>
       <Footer/>

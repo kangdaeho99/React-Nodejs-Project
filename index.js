@@ -15,6 +15,8 @@ app.post("/register", async (req, resp)=>{
     let result = await user.save();
     // console.log("api in progress");
     // resp.send("ap in progress");
+    // result = result.toObject();
+    // delete result.password;
     resp.send(result);
     // resp.send(req.body);
 })
@@ -31,10 +33,29 @@ app.post("/register", async (req, resp)=>{
 
 app.get("/", (req, resp)=>{
     resp.send("app is working.ewqeqw..");
-
-
 });
 
+
+app.post('/login', async (req, resp) =>{
+    console.log(req.body);
+    // resp.send(req.body);
+    if(req.body.password && req.body.email){
+        //mongodb에서 findOne은 password와 email이 같은것 찾는것임 일종의 where
+        let user = await User.findOne(req.body).select("-password");
+        if(user){
+            resp.send(user)
+        }else{
+            resp.send({result:'No User Found'})
+        }
+        
+    }else{
+        resp.send({result:'No User Found'})
+        
+    }
+
+
+    // resp.send(user);
+})
 app.listen(5000)
 // app.listen(5000, function(){
 //     console.log('listening on 5000');
